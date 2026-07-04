@@ -16,6 +16,13 @@ body {
 }
 
 .sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar {
   background: #fffaf6;
   border-right: 1px solid #e1d2c7;
   padding: 28px 20px;
@@ -73,6 +80,7 @@ nav a:hover {
 
 .main {
   padding: 34px;
+  background: #f5efe9;
 }
 
 .topbar {
@@ -211,7 +219,9 @@ button {
 
   .sidebar {
     position: static;
+    height: auto;
   }
+}
 
   .cards {
     grid-template-columns: repeat(2, 1fr);
