@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMS｜Aspect Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <div>
+          <h2>AMS</h2>
+          <p>Aspect Management System</p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="active">🏠 Dashboard</a>
+        <a>🏢 企業方案</a>
+        <a>📚 K書中心</a>
+        <a>📝 工作日誌</a>
+        <a>📄 SOP 系統</a>
+        <a>🤖 AI 助理</a>
+        <a>⚙ 系統設定</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>雅斯貝管理中心</h1>
+          <p>整合企業方案、K書中心、工作日誌與營運數據</p>
+        </div>
+
+        <div class="user">
+          Aspect English
+        </div>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <p>企業方案待處理</p>
+          <h2 id="enterpriseCount">--</h2>
+          <span>待聯繫案件</span>
+        </div>
+
+        <div class="card">
+          <p>K書中心</p>
+          <h2>--</h2>
+          <span>今日預約</span>
+        </div>
+
+        <div class="card">
+          <p>工作日誌</p>
+          <h2>--</h2>
+          <span>今日未填寫</span>
+        </div>
+
+        <div class="card">
+          <p>SOP 系統</p>
+          <h2>--</h2>
+          <span>文件數量</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>企業方案案件</h2>
+          <button onclick="loadEnterpriseCases()">重新整理</button>
+        </div>
+
+        <div id="caseList" class="case-list">
+          <p class="empty">載入中...</p>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
