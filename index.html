@@ -69,19 +69,48 @@
       </section>
 
       <section class="panel">
-        <div class="panel-header">
-          <h2>企業方案案件</h2>
-          <button onclick="loadEnterpriseCases()">重新整理</button>
-        </div>
-
-        <div id="caseList" class="case-list">
-          <p class="empty">載入中...</p>
-        </div>
-      </section>
-    </main>
-
+  <div class="panel-header">
+    <h2>企業方案案件</h2>
+    <button onclick="loadEnterpriseCases()">重新整理</button>
   </div>
 
+  <div class="toolbar">
+    <input type="text" id="searchInput" placeholder="搜尋公司名稱 / 聯絡人">
+    <input type="date" id="dateFilter">
+    <select id="statusFilter">
+      <option value="">全部狀態</option>
+      <option>待聯繫</option>
+      <option>已聯繫</option>
+      <option>已報價</option>
+      <option>已成交</option>
+      <option>未成交</option>
+    </select>
+  </div>
+
+  <div id="caseList" class="case-list">
+    <p class="empty">載入中...</p>
+  </div>
+</section>
+
+<div id="caseModal" class="modal hidden">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h2 id="modalCompany"></h2>
+    <div id="modalContent"></div>
+
+    <div class="modal-actions">
+      <label>修改狀態</label>
+      <select id="modalStatus">
+        <option>待聯繫</option>
+        <option>已聯繫</option>
+        <option>已報價</option>
+        <option>已成交</option>
+        <option>未成交</option>
+      </select>
+      <button onclick="saveStatus()">儲存狀態</button>
+    </div>
+  </div>
+</div>
   <script src="js/script.js"></script>
 </body>
 </html>
