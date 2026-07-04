@@ -20,13 +20,11 @@
       </div>
 
       <nav>
-        <a class="active" onclick="setActiveNav(this)">🏠 Dashboard</a>
-        <a onclick="scrollToEnterprise(this)">🏢 企業方案</a>
-        <a onclick="setActiveNav(this)">📚 K書中心</a>
-        <a onclick="setActiveNav(this)">📝 工作日誌</a>
-        <a onclick="setActiveNav(this)">📄 SOP 系統</a>
-        <a onclick="setActiveNav(this)">🤖 AI 助理</a>
-        <a onclick="setActiveNav(this)">⚙ 系統設定</a>
+        <a class="active" onclick="showPage('dashboard', this)">🏠 Dashboard</a>
+        <a onclick="showPage('enterprise', this)">🏢 企業方案</a>
+        <a onclick="showPage('kstudy', this)">📚 K書中心</a>
+        <a onclick="showPage('ai', this)">🤖 AI 助理</a>
+        <a onclick="showPage('settings', this)">⚙ 系統設定</a>
       </nav>
     </aside>
 
@@ -34,62 +32,125 @@
 
       <header class="topbar">
         <div>
-          <h1>雅斯貝管理中心</h1>
-          <p>整合企業方案、K書中心、工作日誌與營運數據</p>
+          <h1 id="pageTitle">雅斯貝管理中心</h1>
+          <p id="pageSubtitle">整合企業方案、K書中心與營運數據</p>
         </div>
 
-        <div class="user">Aspect English</div>
+        <div class="top-actions">
+          <input type="text" id="globalSearch" placeholder="全站搜尋...">
+
+          <button class="icon-btn" onclick="toggleNotifications()">🔔</button>
+          <button class="icon-btn" onclick="toggleDarkMode()">🌙</button>
+
+          <div class="user">Aspect English</div>
+        </div>
       </header>
 
-      <section class="cards">
-        <div class="card">
-          <p>企業方案待處理</p>
-          <h2 id="enterpriseCount">--</h2>
-          <span>待聯繫案件</span>
-        </div>
+      <div id="notificationPanel" class="notification-panel hidden">
+        <h3>通知中心</h3>
+        <p>🔔 有新的企業方案案件待聯繫</p>
+        <p>📚 K書中心後台尚未串接</p>
+        <p>🤖 AI 助理功能預留中</p>
+      </div>
 
-        <div class="card">
-          <p>K書中心</p>
-          <h2>--</h2>
-          <span>今日預約</span>
-        </div>
+      <!-- Dashboard -->
+      <section id="dashboardPage" class="page active-page">
+        <section class="cards">
+          <div class="card">
+            <p>企業方案待處理</p>
+            <h2 id="enterpriseCount">--</h2>
+            <span>待聯繫案件</span>
+          </div>
 
-        <div class="card">
-          <p>工作日誌</p>
-          <h2>--</h2>
-          <span>今日未填寫</span>
-        </div>
+          <div class="card">
+            <p>K書中心</p>
+            <h2>--</h2>
+            <span>今日預約</span>
+          </div>
 
-        <div class="card">
-          <p>SOP 系統</p>
-          <h2>--</h2>
-          <span>文件數量</span>
-        </div>
+          <div class="card">
+            <p>AI 提醒</p>
+            <h2>--</h2>
+            <span>待處理提醒</span>
+          </div>
+
+          <div class="card">
+            <p>本月企業案件</p>
+            <h2 id="enterpriseTotal">--</h2>
+            <span>全部案件</span>
+          </div>
+        </section>
       </section>
 
-      <section class="panel" id="enterprisePanel">
-        <div class="panel-header">
-          <h2>企業方案案件</h2>
-          <button onclick="loadEnterpriseCases()">重新整理</button>
-        </div>
+      <!-- 企業方案 -->
+      <section id="enterprisePage" class="page">
+        <section class="panel" id="enterprisePanel">
+          <div class="panel-header">
+            <h2>企業方案案件管理</h2>
+            <button onclick="loadEnterpriseCases()">重新整理</button>
+          </div>
 
-        <div class="toolbar">
-          <input type="text" id="searchInput" placeholder="搜尋公司名稱 / 聯絡人">
-          <input type="date" id="dateFilter">
+          <div class="toolbar">
+            <input type="text" id="searchInput" placeholder="搜尋公司名稱 / 聯絡人">
+            <input type="date" id="dateFilter">
 
-          <select id="statusFilter">
-            <option value="">全部狀態</option>
-            <option>待聯繫</option>
-            <option>已聯繫</option>
-            <option>已報價</option>
-            <option>已成交</option>
-            <option>未成交</option>
-          </select>
-        </div>
+            <select id="statusFilter">
+              <option value="">全部狀態</option>
+              <option>待聯繫</option>
+              <option>已聯繫</option>
+              <option>已報價</option>
+              <option>已成交</option>
+              <option>未成交</option>
+            </select>
+          </div>
 
-        <div id="caseList" class="case-list">
-          <p class="empty">載入中...</p>
-        </div>
+          <div id="caseList" class="case-list">
+            <p class="empty">載入中...</p>
+          </div>
+        </section>
+      </section>
+
+      <!-- K書中心 -->
+      <section id="kstudyPage" class="page">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>K書中心後台</h2>
+          </div>
+
+          <div class="placeholder">
+            <h3>📚 K書中心管理</h3>
+            <p>此區之後會串接 K書中心預約資料。</p>
+            <p>預計功能：今日預約、座位狀態、取消紀錄、收費統計。</p>
+          </div>
+        </section>
+      </section>
+
+      <!-- AI -->
+      <section id="aiPage" class="page">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>AI 助理</h2>
+          </div>
+
+          <div class="placeholder">
+            <h3>🤖 AI 助理預留區</h3>
+            <p>之後可加入案件提醒、報價建議、營運分析。</p>
+          </div>
+        </section>
+      </section>
+
+      <!-- 系統設定 -->
+      <section id="settingsPage" class="page">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>系統設定</h2>
+          </div>
+
+          <div class="placeholder">
+            <h3>⚙ 系統設定</h3>
+            <p>之後可放 Logo、API、Email、權限設定。</p>
+          </div>
+        </section>
       </section>
 
     </main>
