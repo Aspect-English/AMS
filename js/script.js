@@ -1,5 +1,5 @@
 const BASE_API =
-"https://script.google.com/macros/s/AKfycbwYgAdPpp-HDhm1tbppoLSfhetouCkMW67gaiSJAe0Tknc1G9HZGBPnGiY2KFOIgn3t/exec";
+  "https://script.google.com/macros/s/AKfycbwYgAdPpp-HDhm1tbppoLSfhetouCkMW67gaiSJAe0Tknc1G9HZGBPnGiY2KFOIgn3t/exec";
 
 const API = BASE_API + "?action=getCases";
 
@@ -32,7 +32,6 @@ async function loadEnterpriseCases() {
     count.textContent = pending;
 
     renderCases();
-
   } catch (err) {
     console.log(err);
     caseList.innerHTML = `<p style="color:red">無法連線 Apps Script</p>`;
@@ -45,22 +44,17 @@ function renderCases() {
   const date = document.getElementById("dateFilter").value;
   const status = document.getElementById("statusFilter").value;
 
-  let filtered = allCases.filter(item => {
+  const filtered = allCases.filter(item => {
     const company = item["公司名稱"] || "";
     const contact = item["聯絡人"] || "";
     const created = String(item["建立時間"] || "").substring(0, 10);
     const itemStatus = item["狀態"] || "";
 
-    const matchKeyword =
-      !keyword || company.includes(keyword) || contact.includes(keyword);
-
-    const matchDate =
-      !date || created === date;
-
-    const matchStatus =
-      !status || itemStatus === status;
-
-    return matchKeyword && matchDate && matchStatus;
+    return (
+      (!keyword || company.includes(keyword) || contact.includes(keyword)) &&
+      (!date || created === date) &&
+      (!status || itemStatus === status)
+    );
   });
 
   if (filtered.length === 0) {
@@ -81,15 +75,10 @@ function renderCases() {
         <div class="case-title">${item["公司名稱"] || "未填公司"}</div>
         <div class="case-sub">${item["聯絡人"] || ""}｜${item["案件編號"] || ""}</div>
       </div>
-
       <div>${item["方案類型"] || ""}</div>
-
       <div>${String(item["建立時間"] || "").substring(0, 10)}</div>
-
       <div>
-        <span class="badge status-${statusText}">
-          ${statusText}
-        </span>
+        <span class="badge status-${statusText}">${statusText}</span>
       </div>
     `;
 
@@ -160,24 +149,6 @@ async function saveStatus() {
   loadEnterpriseCases();
 }
 
-function setActiveNav(el) {
-  document.querySelectorAll("nav a").forEach(a => {
-    a.classList.remove("active");
-  });
-
-  el.classList.add("active");
-}
-
-function scrollToEnterprise(el) {
-  setActiveNav(el);
-
-  document.querySelector(".panel").scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-}
-  });
-}
 window.setActiveNav = function(el) {
   document.querySelectorAll("nav a").forEach(a => {
     a.classList.remove("active");
