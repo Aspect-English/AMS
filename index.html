@@ -19,15 +19,15 @@
         </div>
       </div>
 
-      <nav>
-        <a class="active">🏠 Dashboard</a>
-        <a onclick="scrollToEnterprise()">🏢 企業方案</a>
-        <a>📚 K書中心</a>
-        <a>📝 工作日誌</a>
-        <a>📄 SOP 系統</a>
-        <a>🤖 AI 助理</a>
-        <a>⚙ 系統設定</a>
-      </nav>
+     <nav>
+      <a class="active" onclick="setActiveNav(this)">🏠 Dashboard</a>
+      <a onclick="scrollToEnterprise(this)">🏢 企業方案</a>
+      <a onclick="setActiveNav(this)">📚 K書中心</a>
+      <a onclick="setActiveNav(this)">📝 工作日誌</a>
+      <a onclick="setActiveNav(this)">📄 SOP 系統</a>
+      <a onclick="setActiveNav(this)">🤖 AI 助理</a>
+      <a onclick="setActiveNav(this)">⚙ 系統設定</a>
+    </nav>
     </aside>
 
     <main class="main">
