@@ -160,12 +160,19 @@ async function saveStatus() {
   loadEnterpriseCases();
 }
 
-function scrollToEnterprise() {
+function setActiveNav(el) {
+  document.querySelectorAll("nav a").forEach(a => {
+    a.classList.remove("active");
+  });
+
+  el.classList.add("active");
+}
+
+function scrollToEnterprise(el) {
+  setActiveNav(el);
+
   document.querySelector(".panel").scrollIntoView({
     behavior: "smooth",
     block: "start"
   });
-
-  document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
-  event.target.classList.add("active");
 }
