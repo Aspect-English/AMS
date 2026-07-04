@@ -236,3 +236,86 @@ button {
     align-items: flex-start;
   }
 }
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr 180px 160px;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.toolbar input,
+.toolbar select,
+.modal-actions select {
+  height: 42px;
+  border: 1px solid #e1d2c7;
+  border-radius: 12px;
+  padding: 0 12px;
+  background: white;
+}
+
+.badge.status-待聯繫 { background:#fff0d9; color:#9a5b00; }
+.badge.status-已聯繫 { background:#e8f1ff; color:#245c9f; }
+.badge.status-已報價 { background:#eee8ff; color:#5b3bb3; }
+.badge.status-已成交 { background:#e7f7ec; color:#237a3b; }
+.badge.status-未成交 { background:#fdeaea; color:#b42323; }
+
+.case-item {
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 99;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-card {
+  width: min(720px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+  background: #fffaf6;
+  border-radius: 24px;
+  padding: 28px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+.detail-row {
+  border-bottom: 1px solid #eadbd1;
+  padding: 10px 0;
+}
+
+.detail-row strong {
+  display: block;
+  color: #7c5d4e;
+  font-size: 13px;
+}
+
+.modal-actions {
+  margin-top: 22px;
+  display: grid;
+  gap: 10px;
+}
+
+@media(max-width:700px){
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+}
