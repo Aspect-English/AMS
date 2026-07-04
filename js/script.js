@@ -18,6 +18,10 @@ let allCases = [];
 let currentCase = null;
 
 document.addEventListener("DOMContentLoaded", () => {
+const userName = localStorage.getItem("ams_user_name") || "使用者";
+const userRole = localStorage.getItem("ams_user_role") || "";
+document.getElementById("loginUser").textContent = `${userName}｜${userRole}`;
+  
   loadEnterpriseCases();
 
   document.getElementById("searchInput").addEventListener("input", renderCases);
