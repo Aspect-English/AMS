@@ -1,19 +1,25 @@
 const USERS = [
   {
     username: "admin",
-    password: "1234",
+    password: "a20113025h",
     name: "管理員",
     role: "Owner"
   },
   {
     username: "jenny",
-    password: "2289600",
+    password: "a20113025h",
     name: "Jenny",
     role: "主管"
   },
   {
     username: "julia",
-    password: "2289600",
+    password: "a20113025h",
+    name: "Julia",
+    role: "行政"
+  },
+  {
+    username: "jennie",
+    password: "a20113025h",
     name: "Julia",
     role: "行政"
   }
