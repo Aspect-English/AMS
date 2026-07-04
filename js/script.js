@@ -1,3 +1,14 @@
+if (localStorage.getItem("ams_logged_in") !== "true") {
+  window.location.href = "login.html";
+}
+
+function logout() {
+  localStorage.removeItem("ams_logged_in");
+  localStorage.removeItem("ams_user_name");
+  localStorage.removeItem("ams_user_role");
+  window.location.href = "login.html";
+}
+
 const BASE_API =
   "https://script.google.com/macros/s/AKfycbwYgAdPpp-HDhm1tbppoLSfhetouCkMW67gaiSJAe0Tknc1G9HZGBPnGiY2KFOIgn3t/exec";
 
