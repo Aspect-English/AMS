@@ -159,3 +159,13 @@ async function saveStatus() {
   closeModal();
   loadEnterpriseCases();
 }
+
+function scrollToEnterprise() {
+  document.querySelector(".panel").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+  document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+  event.target.classList.add("active");
+}
