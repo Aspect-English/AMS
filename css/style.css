@@ -329,3 +329,22 @@ button {
     grid-template-columns: 1fr;
   }
 }
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-btn {
+  background: #fff;
+  color: #4a2118;
+  border: 1px solid #d6c8bf;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #f2e5dd;
+}
