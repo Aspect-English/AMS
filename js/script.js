@@ -178,3 +178,23 @@ function scrollToEnterprise(el) {
 }
   });
 }
+window.setActiveNav = function(el) {
+  document.querySelectorAll("nav a").forEach(a => {
+    a.classList.remove("active");
+  });
+
+  el.classList.add("active");
+};
+
+window.scrollToEnterprise = function(el) {
+  window.setActiveNav(el);
+
+  const panel = document.getElementById("enterprisePanel");
+
+  if (panel) {
+    panel.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+};
