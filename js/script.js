@@ -27,6 +27,8 @@ let currentCase = null;
 /* ---------- Init ---------- */
 
 document.addEventListener("DOMContentLoaded", () => {
+   initTheme();
+   initGlobalSearch();
   const userName = localStorage.getItem("ams_user_name") || "使用者";
   const userRole = localStorage.getItem("ams_user_role") || "";
 
