@@ -267,12 +267,6 @@ function toggleNotifications() {
 }
 
 
-/* ---------- Dark Mode ---------- */
-
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-}
-
 /* ---------- Global Search ---------- */
 
 function initGlobalSearch() {
