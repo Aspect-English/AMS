@@ -123,7 +123,8 @@ async function loadEnterpriseCases() {
     if (count) count.textContent = pending;
     if (total) total.textContent = allCases.length;
 
-    renderCases();
+   updateNotifications();
+   renderCases();
 
   } catch (err) {
     console.log(err);
