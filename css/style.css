@@ -480,3 +480,43 @@ button {
   width: 100%;
   margin-bottom: 6px;
 }
+
+.user-menu-btn {
+  background: #5a2418;
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.user-dropdown {
+  background: #ffffff;
+  color: #5a2418;
+}
+
+.user-dropdown button {
+  background: #5a2418;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.user-dropdown button:hover {
+  background: #7a3324;
+}
+
+body.dark-mode .user-menu-btn,
+body.dark-mode .user-dropdown button {
+  background: #5a2418;
+  color: #ffffff;
+}
+
+body.dark-mode .user-dropdown {
+  background: #1f2937;
+  color: #e5e7eb;
+}
