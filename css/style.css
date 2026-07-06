@@ -450,3 +450,33 @@ button {
 .dark-mode .user-dropdown button:hover {
   background: #374151;
 }
+
+.top-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
+  position: relative;
+}
+
+.user-menu {
+  position: relative;
+}
+
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 52px;
+  width: 210px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  padding: 10px;
+  z-index: 999;
+}
+
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+}
