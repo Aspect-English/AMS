@@ -364,3 +364,89 @@ button {
 .hidden {
   display: none;
 }
+
+/* ===========================
+   AOS v1.2 Header Upgrade
+=========================== */
+
+.user-menu {
+  position: relative;
+}
+
+.user-menu-btn {
+  border: none;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 44px;
+  width: 180px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  padding: 10px;
+  z-index: 20;
+}
+
+.user-dropdown-title {
+  font-size: 12px;
+  color: #888;
+  margin: 6px 8px;
+}
+
+.user-dropdown button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 10px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.user-dropdown button:hover {
+  background: #f3f4f6;
+}
+
+.dark-mode {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.dark-mode .main,
+.dark-mode .topbar,
+.dark-mode .card,
+.dark-mode .panel,
+.dark-mode .notification-panel,
+.dark-mode .user-menu-btn,
+.dark-mode .user-dropdown {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+.dark-mode input,
+.dark-mode select {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+
+.dark-mode .sidebar {
+  background: #0f172a;
+}
+
+.dark-mode .user-dropdown button {
+  color: #e5e7eb;
+}
+
+.dark-mode .user-dropdown button:hover {
+  background: #374151;
+}
