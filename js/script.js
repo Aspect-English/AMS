@@ -269,3 +269,88 @@ function toggleNotifications() {
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
+
+/* ---------- Global Search ---------- */
+
+function initGlobalSearch() {
+  const globalSearch = document.getElementById("globalSearch");
+
+  if (!globalSearch) return;
+
+  globalSearch.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter") return;
+
+    const keyword = globalSearch.value.trim();
+
+    if (!keyword) return;
+
+    showPage("enterprise", document.querySelector("nav a:nth-child(2)"));
+
+    const searchInput = document.getElementById("searchInput");
+
+    if (searchInput) {
+      searchInput.value = keyword;
+      renderCases();
+    }
+  });
+}
+
+
+/* ---------- User Menu ---------- */
+
+function toggleUserMenu() {
+  const menu = document.getElementById("userDropdown");
+
+  if (menu) {
+    menu.classList.toggle("hidden");
+  }
+}
+
+
+function showSystemInfo() {
+  alert(
+    "AOS｜Aspect Operating System\n" +
+    "版本：v1.2 Header Upgrade\n" +
+    "狀態：開發中\n" +
+    "模組：Dashboard、CRM、K書中心、AI Assistant、Settings"
+  );
+}
+
+
+/* ---------- Theme Memory ---------- */
+
+function initTheme() {
+  const theme = localStorage.getItem("aos_theme");
+
+  if (theme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+}
+
+
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+
+  const isDark = document.body.classList.contains("dark-mode");
+
+  localStorage.setItem("aos_theme", isDark ? "dark" : "light");
+}
+
+
+/* ---------- Notification Dynamic ---------- */
+
+function updateNotifications() {
+  const panel = document.getElementById("notificationPanel");
+
+  if (!panel) return;
+
+  const pending = allCases.filter(item => item["狀態"] === "待聯繫").length;
+
+  panel.innerHTML = `
+    <h3>通知中心</h3>
+    <p>🏢 企業方案：${pending} 筆待聯繫案件</p>
+    <p>📚 K書中心：尚未串接</p>
+    <p>🤖 AI 助理：功能預留中</p>
+    <p>⚙ 系統：AOS v1.2 Header Upgrade</p>
+  `;
+}
