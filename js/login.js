@@ -44,3 +44,9 @@ function login() {
 
   window.location.href = "index.html";
 }
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    login();
+  }
+});
