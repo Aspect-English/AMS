@@ -520,3 +520,80 @@ body.dark-mode .user-dropdown {
   background: #1f2937;
   color: #e5e7eb;
 }
+
+/* ===========================
+   AOS v1.2 User Dropdown Polish
+=========================== */
+
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 64px;
+  width: 240px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid #ead8cf;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(90, 36, 24, 0.18);
+  padding: 14px;
+  z-index: 999;
+}
+
+.user-dropdown-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #9a6b5b;
+  margin: 4px 8px 12px;
+}
+
+.user-dropdown button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #4b1f15;
+  text-align: left;
+  padding: 13px 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.user-dropdown button:hover {
+  background: #f6ede8;
+  transform: translateX(3px);
+}
+
+.user-dropdown button:last-child {
+  margin-top: 8px;
+  background: #5a2418;
+  color: #ffffff;
+}
+
+.user-dropdown button:last-child:hover {
+  background: #7a3324;
+}
+
+body.dark-mode .user-dropdown {
+  background: rgba(31, 41, 55, 0.96);
+  border-color: #374151;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .user-dropdown-title {
+  color: #cbd5e1;
+}
+
+body.dark-mode .user-dropdown button {
+  color: #e5e7eb;
+}
+
+body.dark-mode .user-dropdown button:hover {
+  background: #374151;
+}
+
+body.dark-mode .user-dropdown button:last-child {
+  background: #5a2418;
+  color: #ffffff;
+}
