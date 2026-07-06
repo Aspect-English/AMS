@@ -348,3 +348,19 @@ button {
 .logout-btn:hover {
   background: #f2e5dd;
 }
+
+/* ===========================
+   AOS v1.1 Page Switch
+=========================== */
+
+.page {
+  display: none;
+}
+
+.page.active-page {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
